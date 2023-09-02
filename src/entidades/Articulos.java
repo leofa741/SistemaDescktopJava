@@ -8,7 +8,7 @@ public class Articulos {
     private String nombre;
     private String codigo;
     private double precioVenta;
-    private int stock;
+    private Integer stock;
     private String descripcion;
     private String imagen;
     private boolean activo;
