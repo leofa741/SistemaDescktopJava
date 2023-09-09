@@ -70,6 +70,29 @@ public class UsuarioControl {
         return this.modeloTabla;
     }
 
+
+    public String login(String email, String clave) {
+        String respuesta = "0";
+        Usuario usuario = DATOS.login(email, encriptar(clave));
+
+        if (usuario != null) {
+            if (usuario.isActivo()) {
+                Variables.usuarioId = usuario.getId();
+                Variables.rolId = usuario.getRolId();
+                Variables.rolNombre = usuario.getRolNombre();
+                Variables.usuarioNombre = usuario.getNombre();
+                Variables.usuarioEmail = usuario.getEmail();
+                respuesta = "1";
+            } else {
+                respuesta = "2";
+            }
+
+       }
+        return respuesta;
+    }
+
+
+
     public DefaultComboBoxModel seleccionar() {
         DefaultComboBoxModel items = new DefaultComboBoxModel();
         List<Rol> lista = DATOSROL.seleccionar();
@@ -147,7 +170,7 @@ public class UsuarioControl {
                 return "Error en la actualización.";
             }
         }else{
-            if (DATOS.existe(nombre)){
+            if (DATOS.existe(email)){
                 return "El registro ya existe.";
             }else{
                 obj.setId(id);

@@ -1,21 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package entidades;
 
 /**
  *
  * @author leopc
  */
-public class Usuario {
+public class Persona {
 
-    private int id;
-
-    private int rolId;
-
-    private String rolNombre;
-    
+    private  int id;
+    private String tipoPersona;
     private String nombre;
 
     private String tipoDocumento;
@@ -28,32 +22,14 @@ public class Usuario {
 
     private String email;
 
-    private String clave;
-
     private boolean activo;
 
-
-    public Usuario() {
+    public Persona() {
     }
 
-    public Usuario(int id, int rolId, String rolNombre, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, String clave, boolean activo) {
+    public Persona(int id, String tipoPersona, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, boolean activo) {
         this.id = id;
-        this.rolId = rolId;
-        this.rolNombre = rolNombre;
-        this.nombre = nombre;
-        this.tipoDocumento = tipoDocumento;
-        this.numDocumento = numDocumento;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.email = email;
-        this.clave = clave;
-        this.activo = activo;
-    }
-
-    public Usuario(int id, int rolId, String rolNombre, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, boolean activo) {
-        this.id = id;
-        this.rolId = rolId;
-        this.rolNombre = rolNombre;
+        this.tipoPersona = tipoPersona;
         this.nombre = nombre;
         this.tipoDocumento = tipoDocumento;
         this.numDocumento = numDocumento;
@@ -62,8 +38,6 @@ public class Usuario {
         this.email = email;
         this.activo = activo;
     }
-    
-    
 
     public int getId() {
         return id;
@@ -73,20 +47,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getRolId() {
-        return rolId;
+    public String getTipoPersona() {
+        return tipoPersona;
     }
 
-    public void setRolId(int rolId) {
-        this.rolId = rolId;
-    }
-
-    public String getRolNombre() {
-        return rolNombre;
-    }
-
-    public void setRolNombre(String rolNombre) {
-        this.rolNombre = rolNombre;
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
     }
 
     public String getNombre() {
@@ -137,14 +103,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public boolean isActivo() {
         return activo;
     }
@@ -152,4 +110,10 @@ public class Usuario {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "id=" + id + ", tipoPersona=" + tipoPersona + ", nombre=" + nombre + ", tipoDocumento=" + tipoDocumento + ", numDocumento=" + numDocumento + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", activo=" + activo + '}';
+    }
+    
 }
