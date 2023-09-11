@@ -7,6 +7,8 @@
             <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/RolDao.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmRol.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/RolControl.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/UsuarioDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmLogin.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/interfaces/CrudPaginadoInterface.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/ArticuloControl.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/CategoriaControl.java</file>
