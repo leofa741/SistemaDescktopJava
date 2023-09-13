@@ -530,7 +530,7 @@ public class FrmArticulo extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabgeneral)
+            .addComponent(tabgeneral, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
