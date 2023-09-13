@@ -7,22 +7,28 @@
             <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/RolDao.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmRol.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/RolControl.java</file>
-            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/UsuarioDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/entidades/Ingreso.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmLogin.java</file>
-            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/interfaces/CrudPaginadoInterface.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/ArticuloControl.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/CategoriaControl.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmCategoria.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/entidades/Articulos.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/entidades/Rol.java</file>
-            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/CategoriaDao.java</file>
-            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/ArticuloDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/interfaces/CrudIngresoInterface.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/IngresoControl.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmArticulo.java</file>
-            <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmCliente.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/PersonaDao.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/negocio/PersonaControl.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/entidades/Categoria.java</file>
             <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmProveedor.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/IngresoDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/entidades/DetalleIngreso.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/UsuarioDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/interfaces/CrudPaginadoInterface.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/CategoriaDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/datos/ArticuloDao.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmIngreso.java</file>
+            <file>file:/H:/projecjava/JavaApplicationSistema/src/presentacion/FrmCliente.java</file>
         </group>
     </open-files>
 </project-private>
