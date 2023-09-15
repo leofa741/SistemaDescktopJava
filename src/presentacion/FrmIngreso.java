@@ -8,6 +8,7 @@ import negocio.IngresoControl;
 
 import negocio.PersonaControl;
 
+import java.awt.event.KeyEvent;
 
 
 /**
@@ -25,9 +26,11 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
     private int totalRegistros;
     
     public DefaultTableModel modeloDetalles;
+    public JFrame contenedor;
 
-    public FrmIngreso() {
-        initComponents();        
+    public FrmIngreso(JFrame contenedorfrmP) {
+        initComponents(); 
+        this.contenedor=contenedorfrmP;
         this.CONTROL= new IngresoControl();
         this.paginar();
         this.listar("",false);
@@ -130,6 +133,26 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
 
            modeloDetalles.setColumnIdentifiers(new Object[]{"Id","Codigo","Articulo","Cantidad","Precio","Subtotal"});
             tablaDetalles.setModel(modeloDetalles);
+
+    }
+
+    public void agregarDetalles(String id,String codigo,String nombre,String precio){
+        String idT;
+        boolean existe = false;
+
+        for (int i = 0; i < modeloDetalles.getRowCount(); i++) {
+            idT = String.valueOf(modeloDetalles.getValueAt(i, 0));
+            if (idT.equals(id)) {
+                existe = true;
+            }
+        }
+
+        if (existe) {
+            JOptionPane.showMessageDialog(this, "El articulo ya existe en el detalle");
+        } else {
+            modeloDetalles.addRow(new Object[]{id,codigo,nombre,1,precio,precio});
+            calcularTotales();
+        }
 
     }
 
@@ -354,6 +377,11 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
         txtNombreProveedor.setEditable(false);
 
         btnSeleccionarProveedor.setText("...");
+        btnSeleccionarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarProveedorActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Impuesto(*)");
 
@@ -374,8 +402,18 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
                 txtCodigoBarraActionPerformed(evt);
             }
         });
+        txtCodigoBarra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodigoBarraKeyReleased(evt);
+            }
+        });
 
         btnVerArticulos.setText("Ver Articulos");
+        btnVerArticulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerArticulosActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -617,6 +655,42 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
             this.limpiar();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnSeleccionarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedorActionPerformed
+    FrmSeleccionarProveedorCompra frm= new FrmSeleccionarProveedorCompra(contenedor, this, true);
+    frm.toFront();
+    }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
+
+    private void txtCodigoBarraKeyReleased(java.awt.event.KeyEvent evt) {
+
+        if (txtCodigoBarra.getText().length() > 0) {
+
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+               entidades.Articulos art;
+                art = this.CONTROL.obtenerArticuloCodigoIngreso(txtCodigoBarra.getText());
+
+                if (art == null) {
+                    this.mensajeError("El articulo no existe");
+                } else {
+                    this.agregarDetalles(String.valueOf(art.getId()), art.getCodigo(), art.getNombre(), String.valueOf(art.getPrecioVenta()));
+
+                    txtCodigoBarra.setText("");
+
+                }
+
+            }
+
+        }else {
+            this.mensajeError("Ingrese el codigo de barras");
+        }
+    }
+
+    private void btnVerArticulosActionPerformed(java.awt.event.ActionEvent evt) {
+
+        FrmSeleccionarArticuloCompra frm= new FrmSeleccionarArticuloCompra(contenedor, this, true);
+        frm.toFront();
+
+    }
+
                                             
 
 
@@ -655,9 +729,9 @@ public class FrmIngreso extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaListado;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCodigoBarra;
-    private javax.swing.JTextField txtIdProveedor;
+    public javax.swing.JTextField txtIdProveedor;
     private javax.swing.JTextField txtImpuesto;
-    private javax.swing.JTextField txtNombreProveedor;
+    public javax.swing.JTextField txtNombreProveedor;
     private javax.swing.JTextField txtNumComprobante;
     private javax.swing.JTextField txtSerieComprobante;
     private javax.swing.JTextField txtSubTotal;

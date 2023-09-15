@@ -375,6 +375,12 @@ public class FrmArticulo extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Categoria (*)");
 
+        cboCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboCategoriaActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Codigo");
 
         jLabel7.setText("Precio de venta(*)");
@@ -757,6 +763,10 @@ public class FrmArticulo extends javax.swing.JInternalFrame {
     private void cboTotalPorPaginasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTotalPorPaginasActionPerformed
         this.paginar();
     }//GEN-LAST:event_cboTotalPorPaginasActionPerformed
+
+    private void cboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboCategoriaActionPerformed
 
                                             
 

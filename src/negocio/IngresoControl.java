@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
+
 import javax.swing.table.DefaultTableModel;
 
 import datos.ArticuloDao;
@@ -90,10 +90,10 @@ public class IngresoControl {
         return this.modeloTabla;
     }*/
 
-  /*  public Articulo obtenerArticuloCodigoIngreso(String codigo){
-        Articulo art=DATOSART.obtenerArticuloCodigoIngreso(codigo);
+   public Articulos obtenerArticuloCodigoIngreso(String codigo){
+        Articulos art=DATOSART.obtenerArticuloCodigoCompras(codigo);
         return art;
-    }*/
+    }
 
     public String insertar(int personaId, String tipoComprobante, String serieComprobante, String numComprobante, double impuesto, double total,DefaultTableModel modeloDetalles){
         if (DATOS.existe(serieComprobante,numComprobante)){

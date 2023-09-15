@@ -39,9 +39,7 @@ public ArticuloDao(){
 
     @Override
     public List<Articulos> listar(String texto, int totalPorPagina, int numPagina) {
-
         List<Articulos> registros = new ArrayList<>();
-
         try {
             ps=CON.conectar().prepareStatement("SELECT a.id,a.categoria_id,c.nombre as categoria_nombre,a.codigo,a.nombre,a.precio_venta,a.stock,a.descripcion,a.imagen,a.activo FROM articulo a INNER JOIN categoria c ON a.categoria_id=c.id WHERE a.nombre LIKE ? ORDER BY a.id DESC LIMIT ?,?");
             ps.setString(1, "%"+texto+"%");
@@ -61,11 +59,33 @@ public ArticuloDao(){
             rs=null;
             CON.desconectar();
         }
+        return registros;        
+      }
+    
+    public Articulos obtenerArticuloCodigoCompras(String codigo){
+        Articulos art=null;
+        try {
+            ps=CON.conectar().prepareStatement("SELECT id,codigo,nombre,precio_venta,stock FROM articulo WHERE codigo=? ");
+            ps.setString(1, codigo);
+            rs=ps.executeQuery();
 
-        return registros; 
-        
-        
-   }
+            if (rs.first()){
+                art=new Articulos(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDouble(4),rs.getInt(5));
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally{
+            ps=null;
+            rs=null;
+            CON.desconectar();
+        }
+        return art;
+    }
+
 
     @Override
     public boolean insertar(Articulos obj) {
